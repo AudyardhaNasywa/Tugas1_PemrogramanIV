@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_usernameController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login Berhasil!')),
+        SnackBar(content: Text('Masuk Berhasil!')),
       );
 
       // Clear the text fields after login
@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Login Page'),
         backgroundColor: Colors.pink[100],
+        automaticallyImplyLeading: false, // Menghapus tombol back di AppBar
       ),
       body: Center(
         child: Padding(
@@ -52,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Login',
+                  'Masuk',
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
@@ -60,8 +61,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                _buildTextField(_usernameController, 'Username'),
-                _buildTextField(_passwordController, 'Password',
+                _buildTextField(_usernameController, 'Nama Pengguna'),
+                _buildTextField(_passwordController, 'Kata Sandi',
                     obscureText: true),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -76,13 +77,14 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        backgroundColor: Colors.blue[100],
-        child: const Icon(Icons.arrow_back),
-      ),
+      // Menghapus FloatingActionButton
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Navigator.pop(context);
+      //   },
+      //   backgroundColor: Colors.blue[100],
+      //   child: const Icon(Icons.arrow_back),
+      // ),
     );
   }
 
